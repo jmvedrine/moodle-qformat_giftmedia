@@ -1,7 +1,0 @@
-// multiple choice with specified feedback for right and wrong answers
-::Q2:: What's between here is an image : <img src="@@PLUGINFILE@@/images/bullet-1.gif" /> and the end orange and green in the spectrum?
-{
-    =yellow # right; good!
-    ~red # [html]wrong, it's yellow
-    ~[plain]blue # wrong, it's yellow
-}
