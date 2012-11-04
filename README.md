@@ -14,3 +14,8 @@ For instance if a mymedia.mp3 file is in the myfolder/mysubfolder/  subfolder, t
 Currently your zip file must respect some constraints to be correctly parsed:
 - the text file containing the questions must be at the root level and must have a .txt extension
 - media files must be in a folder, they can't be at the root level
+
+WARNING : This format depends on changes that I have made to question/format.php in MDL-36243 tracker issue, 
+so until these changes have been integrated in Moodle, media import will not work unless you apply these changes
+yourself to your Moodle server.
+
