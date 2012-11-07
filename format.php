@@ -107,7 +107,11 @@ class qformat_giftmedia extends qformat_gift {
         // As question file areas don't support subdirs,
         // convert path to filename.
         // So that medias with same name can be imported.
-        $newfilename = clean_param(str_replace('/', '__', $filepathinsidetempdir . '__' . $filename), PARAM_FILE);
+        if ($filepathinsidetempdir == '.') {
+            $newfilename = clean_param($filename, PARAM_FILE);
+        }else {
+            $newfilename = clean_param(str_replace('/', '__', $filepathinsidetempdir . '__' . $filename), PARAM_FILE);
+        }
         $filerecord = array(
             'contextid' => context_user::instance($USER->id)->id,
             'component' => 'user',
@@ -116,7 +120,11 @@ class qformat_giftmedia extends qformat_gift {
             'filepath'  => '/',
             'filename'  => $newfilename,
         );
-        $fs->create_file_from_pathname($filerecord, $tempdir . '/' . $filepathinsidetempdir . '/' . $filename);
+        if ($filepathinsidetempdir == '.') {
+            $fs->create_file_from_pathname($filerecord, $tempdir . '/' . $filename);
+        } else {
+            $fs->create_file_from_pathname($filerecord, $tempdir . '/' . $filepathinsidetempdir . '/' . $filename);
+        }
         return $newfilename;
     }
 
