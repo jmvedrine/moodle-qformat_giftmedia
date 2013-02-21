@@ -140,13 +140,15 @@ class qformat_giftmedia extends qformat_gift {
         $data = array();
 
         preg_match_all('|"@@PLUGINFILE@@/([^"]*)"|i', $text, $out); // Find all pluginfile refs.
+        $filepaths = array();
         foreach ($out[1] as $path) {
             $fullpath = $this->tempdir . '/' . $path;
-            if (is_readable($fullpath)) {
+            if (is_readable($fullpath) && !in_array($path, $filepaths)) {
                 $dirpath = dirname($path);
                 $filename = basename($path);
                 $newfilename = $this->store_file_for_text_field($data, $this->tempdir, $dirpath, $filename);
                 $text = preg_replace("|@@PLUGINFILE@@/$path|", "@@PLUGINFILE@@/" . $newfilename, $text);
+                $filepaths[] = $path;
             }
         }
         $data['text'] = $text;
