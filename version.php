@@ -25,8 +25,8 @@
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'qformat_giftmedia';
-$plugin->version   = 2013041100;
-$plugin->requires  = 2012112900;
+$plugin->version   = 2013020800;
+$plugin->requires  = 2012120301;
 $plugin->release   = '1.0';
 $plugin->maturity  = MATURITY_STABLE;
 $plugin->dependencies = array(
