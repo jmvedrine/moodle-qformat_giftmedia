@@ -15,23 +15,20 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information for the calculated question type.
+ * Version information for the GIFT with media format question importer.
  *
- * @package    qformat
- * @subpackage gift
- * @copyright  2011 The Open University
+ * @package    qformat_giftmedia
+ * @copyright  2013 Jean-Michel Vedrine
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $plugin->component = 'qformat_giftmedia';
-$plugin->version   = 2012110300;
-
-$plugin->requires  = 2012061700;
-
-$plugin->maturity  = MATURITY_BETA;
-
+$plugin->version   = 2013041100;
+$plugin->requires  = 2012112900;
+$plugin->release   = '1.0';
+$plugin->maturity  = MATURITY_STABLE;
 $plugin->dependencies = array(
-    'qformat_gift' => 2012061700
+    'qformat_gift' => 2012112900
 );

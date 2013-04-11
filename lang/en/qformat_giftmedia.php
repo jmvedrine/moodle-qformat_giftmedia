@@ -15,11 +15,10 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Strings for component 'qformat_gift', language 'en', branch 'MOODLE_20_STABLE'
+ * Strings for component 'qformat_giftmedia', language 'en'
  *
- * @package    qformat
- * @subpackage gift
- * @copyright  1999 onwards Martin Dougiamas  {@link http://moodle.com}
+ * @package    qformat_giftmedia
+ * @copyright  2013 Jean-Michel Vedrine
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
