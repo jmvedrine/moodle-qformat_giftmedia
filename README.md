@@ -12,8 +12,12 @@ To install using git, type this command in the root of your Moodle install
 Another way to install is to download the zip file, unzip it, and place it in the directory
 moodle/question/format/. (You will need to rename the directory moodle-qformat_giftmedia-master to giftmedia).
 
-WARNING : This version of the report is compatible with Moodle 2.5 or later.
-There are differents version of this plugin available for older Moodle versions.
+WARNING : This version of the import format is compatible with Moodle 2.3.4, 2.3.5, and ulteriors
+versions of Moodle 2.3.x. Unfortunately there is no version of this plugin available for Moodle 2.3, 2.3.1, 2.3.2,
+or 2.3.3 because it depends on changes that have been made to Moodle in MDL-36243 tracker issue,
+and this changes are not integrated into these olders versions so users of these versions need to upgrade if they want
+to use that plugin.
+There are differents version of this plugin available for others Moodle versions.
 Be sure to install the right version for your Moodle version.
 
 The zip file used for import should have the following structure :
