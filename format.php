@@ -312,13 +312,17 @@ class qformat_giftmedia extends qformat_gift {
         $text = $this->parse_text_with_format($questiontext);
         $question->questiontextformat = $text['format'];
         $question->questiontext = $text['text'];
-        $question->questiontextitemid = $text['itemid'];
+        if (!empty($text['itemid'])) {
+            $question->questiontextitemid = $text['itemid'];
+        }
 
         // Get generalfeedback format from questiontext.
         $text = $this->parse_text_with_format($generalfeedback, $question->questiontextformat);
         $question->generalfeedback = $text['text'];
         $question->generalfeedbackformat = $text['format'];
-        $question->generalfeedbackitemid = $text['itemid'];
+        if (!empty($text['itemid'])) {
+            $question->generalfeedbackitemid = $text['itemid'];
+        }
 
         // Set question name if not already set.
         if ($question->name === false) {
