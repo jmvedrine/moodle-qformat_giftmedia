@@ -180,8 +180,8 @@ class qformat_giftmedia extends qformat_gift {
      * @return mixed contents array or false on failure
      */
     public function readdata($filename) {
-        $unique_code = time();
-        $this->tempdir = make_temp_directory('giftmedia/' . $unique_code);
+        $uniquecode = time();
+        $this->tempdir = make_temp_directory('giftmedia/' . $uniquecode);
         if (is_readable($filename)) {
             if (!copy($filename, $this->tempdir . '/gift.zip')) {
                 $this->error(get_string('cannotcopybackup', 'question'));
@@ -222,7 +222,7 @@ class qformat_giftmedia extends qformat_gift {
         $question = $this->defaultquestion();
         $comment = null;
         // Define replaced by simple assignment, stop redefine notices.
-        $gift_answerweight_regex = '/^%\-*([0-9]{1,2})\.?([0-9]*)%/';
+        $giftanswerweightregex = '/^%\-*([0-9]{1,2})\.?([0-9]*)%/';
 
         // Remove commented lines and implode.
         foreach ($lines as $key => $line) {
@@ -332,12 +332,12 @@ class qformat_giftmedia extends qformat_gift {
         // Determine question type.
         $question->qtype = null;
 
-        // Give plugins first try
-        // plugins must promise not to intercept standard qtypes
+        // Give plugins first try.
+        // Plugins must promise not to intercept standard qtypes
         // MDL-12346, this could be called from lesson mod which has its own base class =(.
-        if (method_exists($this, 'try_importing_using_qtypes') &&
-                ($try_question = $this->try_importing_using_qtypes($lines, $question, $answertext))) {
-            return $try_question;
+        if (method_exists($this, 'try_importing_using_qtypes')
+                && ($tryquestion = $this->try_importing_using_qtypes($lines, $question, $answertext))) {
+            return $tryquestion;
         }
 
         if ($description) {
@@ -361,14 +361,14 @@ class qformat_giftmedia extends qformat_gift {
         } else { // Either truefalse or shortanswer.
 
             // Truefalse question check.
-            $truefalse_check = $answertext;
+            $truefalsecheck = $answertext;
             if (strpos($answertext, '#') > 0) {
                 // Strip comments to check for TrueFalse question.
-                $truefalse_check = trim(substr($answertext, 0, strpos($answertext, "#")));
+                $truefalsecheck = trim(substr($answertext, 0, strpos($answertext, "#")));
             }
 
-            $valid_tf_answers = array('T', 'TRUE', 'F', 'FALSE');
-            if (in_array($truefalse_check, $valid_tf_answers)) {
+            $validtfanswers = array('T', 'TRUE', 'F', 'FALSE');
+            if (in_array($truefalsecheck, $validtfanswers)) {
                 $question->qtype = 'truefalse';
 
             } else { // Must be shortanswer.
@@ -426,18 +426,18 @@ class qformat_giftmedia extends qformat_gift {
 
                     // Determine answer weight.
                     if ($answer[0] == '=') {
-                        $answer_weight = 1;
+                        $answerweight = 1;
                         $answer = substr($answer, 1);
 
-                    } else if (preg_match($gift_answerweight_regex, $answer)) {    // Check for properly formatted answer weight.
-                        $answer_weight = $this->answerweightparser($answer);
+                    } else if (preg_match($giftanswerweightregex, $answer)) {    // Check for properly formatted answer weight.
+                        $answerweight = $this->answerweightparser($answer);
 
                     } else {     // Default, i.e., wrong anwer.
-                        $answer_weight = 0;
+                        $answerweight = 0;
                     }
                     list($question->answer[$key], $question->feedback[$key]) =
                             $this->commentparser($answer, $question->questiontextformat);
-                    $question->fraction[$key] = $answer_weight;
+                    $question->fraction[$key] = $answerweight;
                 }  // End foreach answer.
 
                 return $question;
@@ -509,17 +509,17 @@ class qformat_giftmedia extends qformat_gift {
                     $answer = trim($answer);
 
                     // Answer weight.
-                    if (preg_match($gift_answerweight_regex, $answer)) {    // Check for properly formatted answer weight.
-                        $answer_weight = $this->answerweightparser($answer);
+                    if (preg_match($giftanswerweightregex, $answer)) {    // Check for properly formatted answer weight.
+                        $answerweight = $this->answerweightparser($answer);
                     } else {     // Default, i.e., full-credit anwer.
-                        $answer_weight = 1;
+                        $answerweight = 1;
                     }
 
                     list($answer, $question->feedback[$key]) = $this->commentparser(
                             $answer, $question->questiontextformat);
 
                     $question->answer[$key] = $answer['text'];
-                    $question->fraction[$key] = $answer_weight;
+                    $question->fraction[$key] = $answerweight;
                 }
 
                 return $question;
@@ -555,21 +555,21 @@ class qformat_giftmedia extends qformat_gift {
                     $answer = trim($answer);
 
                     // Answer weight.
-                    if (preg_match($gift_answerweight_regex, $answer)) {    // Check for properly formatted answer weight.
-                        $answer_weight = $this->answerweightparser($answer);
+                    if (preg_match($giftanswerweightregex, $answer)) {    // Check for properly formatted answer weight.
+                        $answerweight = $this->answerweightparser($answer);
                     } else {     // Default, i.e., full-credit anwer.
-                        $answer_weight = 1;
+                        $answerweight = 1;
                     }
 
                     list($answer, $question->feedback[$key]) = $this->commentparser(
                             $answer, $question->questiontextformat);
-                    $question->fraction[$key] = $answer_weight;
+                    $question->fraction[$key] = $answerweight;
                     $answer = $answer['text'];
 
                     // Calculate Answer and Min/Max values.
                     if (strpos($answer, "..") > 0) { // Optional [min]..[max] format.
                         $marker = strpos($answer, "..");
-                        $max = trim(substr($answer, $marker+2));
+                        $max = trim(substr($answer, $marker + 2));
                         $min = trim(substr($answer, 0, $marker));
                         $ans = ($max + $min)/2;
                         $tol = $max - $ans;
