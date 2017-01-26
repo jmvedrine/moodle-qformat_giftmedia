@@ -5,7 +5,7 @@ Moodle import format similar to gift, but for a zip file with media files
 
 This plugin allow import of questions with images using the GIFT format syntax.
 
-Written by Jean-Michel Védrine
+Written by Jean-Michel VÃ©drine
 
 To install using git, type this command in the root of your Moodle install
     git clone git://github.com//jmvedrine/moodle-qformat_giftmedia.git question/format/giftmedia
@@ -22,6 +22,9 @@ The zip file used for import should have the following structure :
 the complete path is specified in file's references in the gift questions text
 For instance if a mymedia.mp3 file is in the myfolder/mysubfolder/  subfolder, the correct reference in the gift file is
 @@PLUGINFILE@@/myfolder/mysubfolder/mymedia.mp3
+
+In case the above instractuns not working , you should try the following:
+<img src="@@PLUGINFILE@@/mysubfolder/image1.png" />
 
 KNOWN LIMITATIONS
 Currently the text file containing the questions must be at the root level of the zip archive,
