@@ -1,3 +1,9 @@
+WARNING :
+I am now retired and I stopped all Moodle related activities.
+This repository is here just for history and this work is not maintained any more.
+Feel free to fork it and modify it to suit your needs or improve compatibility with recent Moodle versions.
+Additionaly you can consider contacting the Moodle team and become the new maintainer of this plugin. Thanks
+
 moodle-qformat_giftmedia
 ========================
 
@@ -5,7 +11,7 @@ Moodle import format similar to gift, but for a zip file with media files
 
 This plugin allow import of questions with images using the GIFT format syntax.
 
-Written by Jean-Michel Védrine
+Written by Jean-Michel VÃ©drine
 
 To install using git, type this command in the root of your Moodle install
     git clone git://github.com//jmvedrine/moodle-qformat_giftmedia.git question/format/giftmedia
