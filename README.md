@@ -29,6 +29,9 @@ the complete path is specified in file's references in the gift questions text
 For instance if a mymedia.mp3 file is in the myfolder/mysubfolder/  subfolder, the correct reference in the gift file is
 @@PLUGINFILE@@/myfolder/mysubfolder/mymedia.mp3
 
+In case the above instractuns not working , you should try the following:
+<img src="@@PLUGINFILE@@/mysubfolder/image1.png" />
+
 KNOWN LIMITATIONS
 Currently the text file containing the questions must be at the root level of the zip archive,
 and it must have a .txt extension to be correctly found and parsed.
