@@ -263,7 +263,7 @@ class qformat_giftmedia extends qformat_gift {
             } else {
                 $questionname = substr($text, 0, $namefinish);
                 $question->name = $this->clean_question_name($this->escapedchar_post($questionname));
-                $text = trim(substr($text, $namefinish+2)); // Remove name from text.
+                $text = trim(substr($text, $namefinish + 2)); // Remove name from text.
             }
         } else {
             $question->name = false;
@@ -354,7 +354,7 @@ class qformat_giftmedia extends qformat_gift {
             // Only Multiplechoice questions contain tilde ~.
             $question->qtype = 'multichoice';
 
-        } else if (strpos($answertext, '=')  !== false
+        } else if (strpos($answertext, '=') !== false
                 && strpos($answertext, '->') !== false) {
             // Only Matching contains both = and ->.
             $question->qtype = 'match';
@@ -436,8 +436,8 @@ class qformat_giftmedia extends qformat_gift {
                     } else {     // Default, i.e., wrong anwer.
                         $answerweight = 0;
                     }
-                    list($question->answer[$key], $question->feedback[$key]) =
-                            $this->commentparser($answer, $question->questiontextformat);
+                    list($question->answer[$key], $question->feedback[$key])
+                            = $this->commentparser($answer, $question->questiontextformat);
                     $question->fraction[$key] = $answerweight;
                 }  // End foreach answer.
 
@@ -475,8 +475,8 @@ class qformat_giftmedia extends qformat_gift {
                 return $question;
 
             case 'truefalse':
-                list($answer, $wrongfeedback, $rightfeedback) =
-                        $this->split_truefalse_comment($answertext, $question->questiontextformat);
+                list($answer, $wrongfeedback, $rightfeedback)
+                        = $this->split_truefalse_comment($answertext, $question->questiontextformat);
 
                 if ($answer['text'] == "T" OR $answer['text'] == "TRUE") {
                     $question->correctanswer = 1;
@@ -572,11 +572,11 @@ class qformat_giftmedia extends qformat_gift {
                         $marker = strpos($answer, "..");
                         $max = trim(substr($answer, $marker + 2));
                         $min = trim(substr($answer, 0, $marker));
-                        $ans = ($max + $min)/2;
+                        $ans = ($max + $min) / 2;
                         $tol = $max - $ans;
                     } else if (strpos($answer, ':') > 0) { // Standard [answer]:[errormargin] format.
                         $marker = strpos($answer, ':');
-                        $tol = trim(substr($answer, $marker+1));
+                        $tol = trim(substr($answer, $marker + 1));
                         $ans = trim(substr($answer, 0, $marker));
                     } else { // Only one valid answer (zero errormargin).
                         $tol = 0;
