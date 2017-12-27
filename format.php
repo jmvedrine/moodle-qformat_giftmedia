@@ -188,7 +188,8 @@ class qformat_giftmedia extends qformat_gift {
                 fulldelete($this->tempdir);
                 return false;
             }
-            if (unzip_file($this->tempdir . '/gift.zip', '', false)) {
+            $packer = get_file_packer('application/zip');
+            if ($packer->extract_to_pathname($this->tempdir . '/gift.zip', $this->tempdir)) {
                 // Search for a text file in the zip archive.
                 // TODO ? search it, even if it is not a root level ?
                 $filenames = array();
