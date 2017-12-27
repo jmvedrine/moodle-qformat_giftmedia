@@ -53,7 +53,7 @@ If in your question you have the following html fragment to display an image
 ```
 You should edit it to
 ```
-<img src\="@@PLUGINFILE@@/images/flower.png" alt\="a flower" /
+<img src\="@@PLUGINFILE@@/images/flower.png" alt\="a flower" />
 ```
 An put the flower.png file into a folder named images inside your zip file
 
