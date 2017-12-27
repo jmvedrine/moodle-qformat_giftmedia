@@ -26,9 +26,35 @@ The zip file used for import should have the following structure :
 - a text file with all questions in gift form at the root level of the zip archive with a .txt extension
 - one or more folders with the media files, each folder can have any subfolders levels as long as
 the complete path is specified in file's references in the gift questions text
+
+Example of media files inclusion
+
+Example 1
+
 For instance if a mymedia.mp3 file is in the myfolder/mysubfolder/  subfolder, the correct reference in the gift file is
 @@PLUGINFILE@@/myfolder/mysubfolder/mymedia.mp3
 
+Example 2
+
+If you want to include an image named logo.jpg into your question , you can write:
+<img src\="@@PLUGINFILE@@/logo.jpg" alt\="logo" />
+and put the logo.jpg file into your zip file
+
+
+Example 3
+
+If in your question you have the following html fragment to display an image:
+<img src\="images/flower.png" alt\="a flower" />
+You should edit it to:
+<img src\="@@PLUGINFILE@@/images/flower.png" alt\="a flower" />
+An put the flower.png file into a folder named images inside your zip file
+
+
 KNOWN LIMITATIONS
+
 Currently the text file containing the questions must be at the root level of the zip archive,
 and it must have a .txt extension to be correctly found and parsed.
+
+NOTE : Don't forget the GIFT syntax ! the = character is a special character for GIFT so each = in your HTML 
+has to be written as \= (see examples 2 and 3 above). I made this mistake numerous time while writting 
+GIFT with medias questions, so you have been warned.
