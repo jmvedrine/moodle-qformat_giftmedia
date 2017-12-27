@@ -18,7 +18,7 @@ Feature: Test importing questions from GIFT with medias format.
     And I am on "Course 1" course homepage
 
   @javascript @_file_upload
-  Scenario: import some GIFT with medias questions
+  Scenario: import one GIFT with medias question
     When I navigate to "Import" node in "Course administration > Question bank"
     And I set the field "id_format_giftmedia" to "1"
     And I upload "question/format/gift/tests/fixtures/giftmedia_example.zip" file to "Import" filemanager
