@@ -2,24 +2,28 @@ language: php
 
 sudo: false
 
-cache:
-  directories:
-    - $HOME/.composer/cache
-
-php:
- - 7.0
- - 7.1
-
 addons:
   firefox: "47.0.1"
   postgresql: "9.3"
+  apt:
+    packages:
+      - oracle-java8-installer
+      - oracle-java8-set-default
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+    - $HOME/.npm
+
+php:
+ - 7.1
 
 env:
  global:
-  - MOODLE_BRANCH=MOODLE_32_STABLE
- matrix:
-  - DB=pgsql
   - DB=mysqli
+ matrix:
+  - MOODLE_BRANCH=master
+  - MOODLE_BRANCH=MOODLE_33_STABLE
 
 before_install:
   - phpenv config-rm xdebug.ini
@@ -32,14 +36,14 @@ before_install:
 install:
   - moodle-plugin-ci install
 
-  script:
+script:
   - moodle-plugin-ci phplint
   - moodle-plugin-ci phpcpd
   - moodle-plugin-ci phpmd
   - moodle-plugin-ci codechecker
   - moodle-plugin-ci validate
   - moodle-plugin-ci savepoints
-#  - moodle-plugin-ci mustache
-#  - moodle-plugin-ci grunt
+  - moodle-plugin-ci mustache
+  - moodle-plugin-ci grunt
   - moodle-plugin-ci phpunit
   - moodle-plugin-ci behat
