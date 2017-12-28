@@ -233,7 +233,7 @@ class qformat_giftmedia extends qformat_gift {
             }
         }
 
-        $text = trim(implode(' ', $lines));
+        $text = trim(implode("\n", $lines));
 
         if ($text == '') {
             return false;
@@ -391,8 +391,10 @@ class qformat_giftmedia extends qformat_gift {
 
             case 'essay':
                 $question->responseformat = 'editor';
+                $question->responserequired = 1;
                 $question->responsefieldlines = 15;
                 $question->attachments = 0;
+                $question->attachmentsrequired = 0;
                 $question->graderinfo = array(
                         'text' => '', 'format' => FORMAT_HTML);
                 $question->responsetemplate = array(
@@ -478,7 +480,7 @@ class qformat_giftmedia extends qformat_gift {
                 list($answer, $wrongfeedback, $rightfeedback)
                         = $this->split_truefalse_comment($answertext, $question->questiontextformat);
 
-                if ($answer['text'] == "T" OR $answer['text'] == "TRUE") {
+                if ($answer['text'] == "T" || $answer['text'] == "TRUE") {
                     $question->correctanswer = 1;
                     $question->feedbacktrue = $rightfeedback;
                     $question->feedbackfalse = $wrongfeedback;
