@@ -1,4 +1,4 @@
-@qformat @qformat_giftmedia
+@qformat @qformat_giftmedia @javascript @_file_upload
 Feature: Test importing questions from GIFT with medias format.
   In order to reuse questions with images and sound
   As an teacher
@@ -17,7 +17,6 @@ Feature: Test importing questions from GIFT with medias format.
     And I log in as "teacher"
     And I am on "Course 1" course homepage
 
-  @javascript @_file_upload
   Scenario: import one GIFT with medias question
     When I navigate to "Import" node in "Course administration > Question bank"
     And I set the field "id_format_giftmedia" to "1"
