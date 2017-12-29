@@ -24,6 +24,7 @@ Feature: Test importing questions from GIFT with medias format.
     And I press "id_submitbutton"
     Then I should see "Parsing questions from import file."
     And I should see "Importing 1 questions from file"
-    And I should see "Listen to this : What is it?"
+    And I should see "Listen to this"
+    And I should see "What is it?"
     When I press "Continue"
     Then I should see "MC question with images and an MP3 file"
