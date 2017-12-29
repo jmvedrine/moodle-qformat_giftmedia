@@ -20,7 +20,6 @@ Feature: Test importing questions from GIFT with medias format.
   Scenario: import one GIFT with medias question
     When I navigate to "Import" node in "Course administration > Question bank"
     And I set the field "id_format_giftmedia" to "1"
-    question/format/gift/tests/fixtures/questions.gift.txt
     And I upload "question/format/giftmedia/tests/fixtures/giftmedia_example.zip" file to "Import" filemanager
     And I press "id_submitbutton"
     Then I should see "Parsing questions from import file."
