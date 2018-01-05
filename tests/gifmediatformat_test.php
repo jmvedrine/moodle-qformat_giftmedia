@@ -71,6 +71,7 @@ class qformat_giftmedia_test extends question_testcase {
             'graderinfo' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+            ),
         );
 
         $this->assert(new question_check_specified_fields_expectation($expectedq), $q);
@@ -200,7 +201,7 @@ class qformat_giftmedia_test extends question_testcase {
                 ),
                 2 => array(
                     'text' => 'blue',
-                    'format' => FORMAT_PLAIN,
+                    'format' => FORMAT_HTML,
                 ),
             ),
             'fraction' => array(1, 0, 0),
@@ -281,7 +282,7 @@ class qformat_giftmedia_test extends question_testcase {
                 ),
                 3 => array(
                     'text' => 'blue',
-                    'format' => FORMAT_PLAIN,
+                    'format' => FORMAT_HTML,
                 ),
             ),
             'fraction' => array(0.5, -1, 0.5, -1),
@@ -562,13 +563,11 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'correctanswer' => 0,
             'feedbacktrue' => array(
                 'text' => '42 is the Ultimate Answer.',
-                'format' => FORMAT_HTML,
-
+                'format' => FORMAT_HTML
             ),
             'feedbackfalse' => array(
                 'text' => 'You gave the right answer.',
-                'format' => FORMAT_HTML,
-
+                'format' => FORMAT_HTML
             ),
         );
 
