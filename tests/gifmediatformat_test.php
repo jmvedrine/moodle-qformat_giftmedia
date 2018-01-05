@@ -670,6 +670,7 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'graderinfo' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+            ),
         );
 
         $this->assert(new question_check_specified_fields_expectation($expectedq), $q);
@@ -714,6 +715,7 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'graderinfo' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+            ),
         );
 
         $this->assert(new question_check_specified_fields_expectation($expectedq), $q);
