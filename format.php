@@ -62,6 +62,7 @@ defined('MOODLE_INTERNAL') || die();
 class qformat_giftmedia extends qformat_gift {
     /** @var string path to the temporary directory. */
     public $tempdir = '';
+
     /**
      * This plugin provide import
      * @return bool true
@@ -70,10 +71,18 @@ class qformat_giftmedia extends qformat_gift {
         return true;
     }
 
+    /**
+     * This plugin doesn't provide import
+     * @return bool false
+     */
     public function provide_export() {
         return false;
     }
 
+        /**
+     * This plugin takes a zip archive
+     * @return string mime-type of the files that this plugin reads
+     */
     public function mime_type() {
         return mimeinfo('type', '.zip');
     }
@@ -92,10 +101,10 @@ class qformat_giftmedia extends qformat_gift {
 
     /**
      * Store an image file in a draft filearea
-     * @param array $text, if itemid element don't exists it will be created
-     * @param string tempdir path to root of image tree
-     * @param string filepathinsidetempdir path to image in the tree
-     * @param string filename image's name
+     * @param array $text, if itemid element doesn't exist it will be created
+     * @param string $tempdir path to root of image tree
+     * @param string $filepathinsidetempdir path to image in the tree
+     * @param string $filename image's name
      * @return string new name of the image as it was stored
      */
     protected function store_file_for_text_field(&$text, $tempdir, $filepathinsidetempdir, $filename) {
@@ -133,7 +142,7 @@ class qformat_giftmedia extends qformat_gift {
      * store all medias in a draft filearea,
      * and return an array with all urls in text recoded,
      * format set to FORMAT_HTML, and itemid set to filearea itemid
-     * @param string text text to parse and recode
+     * @param string $text text to parse and recode
      * @return array with keys text, format, itemid.
      */
     public function text_field($text) {
@@ -156,10 +165,22 @@ class qformat_giftmedia extends qformat_gift {
         return $data;
     }
 
+    /**
+     * The file extension (including .) that is normally used by this plugin
+     * @return string extension
+     */
     public function export_file_extension() {
         return '.zip';
     }
 
+
+    /**
+     * Parse the text
+     * @param string $text the text to parse
+     * @param integer $defaultformat text format
+     * @return array with keys text, format, itemid.
+     *
+     */
     protected function parse_text_with_format($text, $defaultformat = FORMAT_MOODLE) {
         // Parameter defaultformat is ignored we set format to be html in all cases.
 
@@ -176,7 +197,7 @@ class qformat_giftmedia extends qformat_gift {
      * Return content of all files containing questions,
      * as an array one element for each file found,
      * For each file, the corresponding element is an array of lines.
-     * @param string filename name of file
+     * @param string $filename name of file
      * @return mixed contents array or false on failure
      */
     public function readdata($filename) {
