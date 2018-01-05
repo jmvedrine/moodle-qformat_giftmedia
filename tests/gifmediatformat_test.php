@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Unit tests for the Moodle GIFT format.
+ * Unit tests for the Moodle GIFT with medias format.
  *
  * @package    qformat_giftmedia
  * @copyright  2017 Jean-Michel Vedrine
@@ -28,12 +28,13 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 require_once($CFG->libdir . '/questionlib.php');
 require_once($CFG->dirroot . '/question/format.php');
+require_once($CFG->dirroot . '/question/format/gift/format.php');
 require_once($CFG->dirroot . '/question/format/giftmedia/format.php');
 require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 
 
 /**
- * Unit tests for the GIFT with media import format.
+ * Unit tests for the GIFT with medias import format.
  * This test is in fact similar to the import tests made for the GIFT
  * format to ensure that both works the same way and produce the same results
  *
