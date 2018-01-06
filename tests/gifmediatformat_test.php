@@ -107,14 +107,17 @@ class qformat_giftmedia_test extends question_testcase {
             'correctfeedback' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
             'partiallycorrectfeedback' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
             'incorrectfeedback' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
             'subquestions' => array(
                 0 => array(
@@ -182,14 +185,17 @@ class qformat_giftmedia_test extends question_testcase {
             'correctfeedback' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
             'partiallycorrectfeedback' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
             'incorrectfeedback' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
             'answer' => array(
                 0 => array(
@@ -259,14 +265,17 @@ class qformat_giftmedia_test extends question_testcase {
             'correctfeedback' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
             'partiallycorrectfeedback' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
             'incorrectfeedback' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
             'answer' => array(
                 0 => array(
@@ -343,14 +352,17 @@ class qformat_giftmedia_test extends question_testcase {
                 'correctfeedback' => array(
                         'text' => '',
                         'format' => FORMAT_HTML,
+                        'files' => array(),
                 ),
                 'partiallycorrectfeedback' => array(
                         'text' => '',
                         'format' => FORMAT_HTML,
+                        'files' => array(),
                 ),
                 'incorrectfeedback' => array(
                         'text' => '',
                         'format' => FORMAT_HTML,
+                        'files' => array(),
                 ),
                 'answer' => array(
                         0 => array(
@@ -564,11 +576,11 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'correctanswer' => 0,
             'feedbacktrue' => array(
                 'text' => '42 is the Ultimate Answer.',
-                'format' => FORMAT_HTML
+                'format' => FORMAT_HTML,
             ),
             'feedbackfalse' => array(
                 'text' => 'You gave the right answer.',
-                'format' => FORMAT_HTML
+                'format' => FORMAT_HTML,
             ),
         );
 
@@ -597,10 +609,12 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'feedbacktrue' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
             'feedbackfalse' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
 
             ),
         );
@@ -630,10 +644,12 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'feedbacktrue' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
             'feedbackfalse' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
+                'files' => array(),
             ),
         );
 
