@@ -597,7 +597,6 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'feedbacktrue' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
-
             ),
             'feedbackfalse' => array(
                 'text' => '',
@@ -631,12 +630,10 @@ FALSE#42 is the Ultimate Answer.#You gave the right answer.}";
             'feedbacktrue' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
-
             ),
             'feedbackfalse' => array(
                 'text' => '',
                 'format' => FORMAT_HTML,
-
             ),
         );
 
