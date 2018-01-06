@@ -36,9 +36,12 @@ require_once($CFG->dirroot . '/question/engine/tests/helpers.php');
 /**
  * Unit tests for the GIFT with medias import format.
  * This test is in fact similar to the import tests made for the GIFT
- * format to ensure that both works the same way and produce the same results
+ * format to ensure that giftmedia and gift produce the same results
+ * parsing the same gift strings.
+ * Note that there are completely useless empty files arrays in some
+ * places because qformat_gift methods keep adding them.
  *
- * @copyright 2017
+ * @copyright 2017 Jean-Michel Vedrine
  * @license http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class qformat_giftmedia_test extends question_testcase {
@@ -434,7 +437,6 @@ class qformat_giftmedia_test extends question_testcase {
                 1 => array(
                     'text' => "Completely wrong",
                     'format' => FORMAT_HTML,
-                    'files' => array(),
                 ),
             ),
             'tolerance' => array(2, 0),
