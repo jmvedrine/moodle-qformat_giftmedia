@@ -429,10 +429,12 @@ class qformat_giftmedia_test extends question_testcase {
                 0 => array(
                     'text' => '',
                     'format' => FORMAT_HTML,
+                    'files' => array(),
                 ),
                 1 => array(
                     'text' => "Completely wrong",
                     'format' => FORMAT_HTML,
+                    'files' => array(),
                 ),
             ),
             'tolerance' => array(2, 0),
