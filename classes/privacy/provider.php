@@ -15,20 +15,32 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Version information for the GIFT with media format question importer.
+ * Privacy Subsystem implementation for qformat_giftmedia.
  *
  * @package    qformat_giftmedia
- * @copyright  2013 Jean-Michel Vedrine
+ * @copyright  2018 Jean-Michel Vedrine
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
+namespace qformat_giftmedia\privacy;
+
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'qformat_giftmedia';
-$plugin->version   = 2018050100;
-$plugin->requires  = 2013042600;
-$plugin->release   = '1.04 for Moodle 2.7 ... 3.5';
-$plugin->maturity  = MATURITY_STABLE;
-$plugin->dependencies = array(
-    'qformat_gift' => 2012112900
-);
+/**
+ * Privacy Subsystem for qformat_giftmedia implementing null_provider.
+ *
+ * @copyright  2018 Jean-Michel Vedrine
+ * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
+ */
+class provider implements \core_privacy\local\metadata\null_provider {
+
+    /**
+     * Get the language string identifier with the component's language
+     * file to explain why this plugin stores no data.
+     *
+     * @return  string
+     */
+    public static function get_reason() : string {
+        return 'privacy:metadata';
+    }
+}

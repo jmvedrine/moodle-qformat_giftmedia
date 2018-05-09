@@ -25,4 +25,5 @@
 $string['pluginname'] = 'Gift with medias format';
 $string['pluginname_help'] = 'Similar to the Gift format but allow questions with references to medias and media files to be imported via zip file.';
 $string['pluginname_link'] = 'qformat/giftmedia';
+$string['privacy:metadata'] = 'The Gift with medias question format plugin does not store any personal data.';
 $string['nogiftfile'] = 'Unable to find any gift file in the zip archive. Please make sure your archive contains a file with the .txt extension at root level.';
