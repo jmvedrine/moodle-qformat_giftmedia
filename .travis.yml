@@ -4,11 +4,10 @@ sudo: required
 
 addons:
   firefox: "47.0.1"
-  postgresql: "9.3"
+  postgresql: "9.4"
   apt:
     packages:
-      - oracle-java8-installer
-      - oracle-java8-set-default
+      - openjdk-8-jre-headless
 
 cache:
   directories:
@@ -16,16 +15,11 @@ cache:
     - $HOME/.npm
 
 php:
- - 5.6
- - 7.0
  - 7.1
 
 env:
- global:
-  - MOODLE_BRANCH=MOODLE_32_STABLE
- matrix:
-  - DB=pgsql
-  - DB=mysqli
+  - MOODLE_BRANCH=MOODLE_34_STABLE DB=pgsql
+  - MOODLE_BRANCH=master DB=pgsql
 
 before_install:
   - phpenv config-rm xdebug.ini
@@ -40,8 +34,6 @@ install:
 
 script:
   - moodle-plugin-ci phplint
-#  - moodle-plugin-ci phpcpd
-  - moodle-plugin-ci phpmd
   - moodle-plugin-ci codechecker
   - moodle-plugin-ci validate
   - moodle-plugin-ci savepoints
