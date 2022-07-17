@@ -78,6 +78,16 @@ class qformat_giftmedia extends qformat_gift {
     public function provide_export() {
         return false;
     }
+    /**
+     * Revert the validate_file function to the base class one
+     * because this plugin takes a zip file so we can't use the
+     * parent one.
+     * @param file
+     * @return string
+     */
+    public function validate_file(stored_file $file): string {
+        return '';
+    }
 
     /**
      * This plugin takes a zip archive
